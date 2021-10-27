@@ -22,20 +22,5 @@ public class UserController {
         return "deleteUser";
     }
 
-    @RequestMapping(value = {"/addComment"})
-    public String addComment() {
-        return "addComment";
-    }
-
-
-    @RequestMapping(value = {"/deleteComment"})
-    public String deleteComment() {
-        return "deleteComment";
-    }
-
-    @RequestMapping(value = {"/editComment"})
-    public String editComment() {
-        return "editComment";
-    }
 }
 
