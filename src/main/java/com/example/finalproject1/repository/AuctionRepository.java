@@ -14,5 +14,5 @@ public interface AuctionRepository extends JpaRepository<Auction, Long> {
     Auction save(Auction entity);
 
     void delete(Auction aLong);
-    Auction findByid(long id);
+    Auction findById(long id);
 }
