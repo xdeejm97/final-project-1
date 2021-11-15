@@ -4,108 +4,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up Form by Colorlib</title>
 
-    <!-- Font Icon -->
-    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
-    <link rel="stylesheet" href="vendor/nouislider/nouislider.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
 
-    <!-- Main css -->
-    <link rel="stylesheet" href="css/register/style.css">
+    <link rel="stylesheet"  href="css/register/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!--Fontawesome CDN-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
 </head>
 <body>
-
-<div class="main">
-
-    <div class="container">
-        <div class="signup-content">
-            <div class="signup-img">
-                <img src="img/form-img.jpg" alt="">
-                <div class="signup-img-content">
-                    <h2>Register now </h2>
-                    <p>while seats are available !</p>
-                </div>
-            </div>
-            <div class="signup-form">
-                <form method="POST" class="register-form" id="register-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <div class="form-input">
-                                <label for="login" class="required">Login</label>
-                                <input type="text" name="login" id="login"/>
-                            </div>
-                            <div class="form-input">
-                                <label for="password" class="required">Hasło</label>
-                                <input type="text" name="password" id="password"/>
-                            </div>
-                            <div class="form-input">
-                                <label for="login_name" class="required">Nazwa konta</label>
-                                <input type="text" name="login_name" id="login_name"/>
-                            </div>
-                            <div class="form-input">
-                                <label for="region" class="required">Województwo</label>
-                                <input type="text" name="region" id="region"/>
-                            </div>
-                            <div class="form-input">
-                                <label for="city" class="required">Miasto</label>
-                                <input type="text" name="city" id="city"/>
-                            </div>
-                            <div class="form-input">
-                                <label for="adress" class="required">Adres</label>
-                                <input type="text" name="adress" id="adress"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="form-input">
-                                <label for="establishment_date">Data założenia konta</label>
-                                <!--//** TODO Podpiąć datę do pola-->
-                                <input type="text" name="establishment_date" id="establishment_date"/>
-                            </div>
-                            <div class="form-radio">
-                                <div class="form-radio-group">
-                                    <div class="label-flex">
-                                        <label for="account_status">Status Konta</label>
-                                    </div>
-
-                                    <div class="form-radio-item">
-                                        <input type="radio" name="active" id="active" checked>
-                                        <label for="active">Aktywne</label>
-                                        <span class="check"></span>
-                                    </div>
-
-                                    <div class="form-radio-item">
-                                        <input type="radio" name="inactive" id="inactive" checked>
-                                        <label for="inactive">Nieaktywne</label>
-                                        <span class="check"></span>
-                                    </div>
-
-                                    <div class="form-radio-item">
-                                        <input type="radio" name="banned" id="banned" checked>
-                                        <label for="banned">Zablokowany</label>
-                                        <span class="check"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-submit">
-                        <input type="submit" value="Submit" class="submit" id="submit" name="submit"/>
-                        <input type="submit" value="Reset" class="submit" id="reset" name="reset"/>
-                    </div>
-                </form>
+<div class="container">
+    <form class="form-horizontal" role="form">
+        <h2>Registration</h2>
+        <div class="form-group">
+            <label for="accountName" class="col-sm-3 control-label">Nazwa*</label>
+            <div class="col-sm-9">
+                <input type="text" id="accountName" placeholder="Nazwa użytkownika" class="form-control" autofocus>
             </div>
         </div>
-    </div>
+        <div class="form-group">
+            <label for="passwordId" class="col-sm-3 control-label">Hasło*</label>
+            <div class="col-sm-9">
+                <input type="password" id="passwordId" placeholder="Hasło" class="form-control" autofocus>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email" class="col-sm-3 control-label">E-mail* </label>
+            <div class="col-sm-9">
+                <input type="email" id="email" placeholder="E-mail" class="form-control" name= "email">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="state" class="col-sm-3 control-label">Województwo*</label>
+            <div class="col-sm-9">
+                <input type="text" id="state" placeholder="Województwo" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="city" class="col-sm-3 control-label">Miasto*</label>
+            <div class="col-sm-9">
+                <input type="text" id="city" placeholder="Miasto" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="adress" class="col-sm-3 control-label">Adres </label>
+            <div class="col-sm-9">
+                <input type="text" id="street" placeholder="Ulica" class="form-control">
+                <input type="text" id="houseNumber" placeholder="Numer domu" class="form-control">
+                <input type="text" id="zipCode" placeholder="Kod pocztowy" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="accountDate" class="col-sm-3 control-label">Data założenia konta*</label>
+            <div class="col-sm-9">
+                <input type="date" id="accountDate" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3">Status konta</label>
+            <div class="col-sm-8">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <label class="radio-inline">
+                            <input type="radio" id="active" value="Aktywne">Aktywne
+                        </label>
+                    </div>
+                    <div class="col-sm-5">
+                        <label class="radio-inline">
+                            <input type="radio" id="inactive" value="Nieaktywne">Nieaktywne
+                        </label>
+                    </div>
+                    <div class="col-sm-9">
+                        <label class="radio-inline">
+                            <input type="radio" id="banned" value="Zablokowane">Zablokowane
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-</div>
+        <div class="form-group">
+            <label class="control-label col-sm-3">Typ konta</label>
+            <div class="col-sm-8">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" id="normalRadio" value="Normalne">Normalne
+                        </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" id="premiumRadio" value="Premium">Premium
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- /.form-group -->
+        <div class="form-group">
+            <div class="col-sm-9 col-sm-offset-3">
+                <span class="help-block">*Required fields</span>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Rejestracja</button>
+    </form> <!-- /form -->
+</div> <!-- ./container -->
 
-<!-- JS -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/nouislider/nouislider.min.js"></script>
-<script src="vendor/wnumb/wNumb.js"></script>
-<script src="vendor/jquery-validation/dist/jquery.validate.min.js"></script>
-<script src="vendor/jquery-validation/dist/additional-methods.min.js"></script>
-<script src="js/main.js"></script>
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</body>
 </html>
+
