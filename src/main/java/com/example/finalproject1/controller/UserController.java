@@ -38,7 +38,7 @@ public class UserController {
 
         model.addAttribute("userForm", new User());
 
-        return "register";
+        return "loginPages/register";
     }
 
     @PostMapping("/register")
