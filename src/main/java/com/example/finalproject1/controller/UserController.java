@@ -46,7 +46,7 @@ public class UserController {
         userValidator.validate(userForm, bindingResult);
 
         if (bindingResult.hasErrors()) {
-            return "loginPages/register";
+            return "/loginPages/register";
         }
 
         userService.save(userForm);
@@ -59,7 +59,7 @@ public class UserController {
     @GetMapping("/login")
     public String login(Model model, String error, String logout) {
         if (!securityService.isAuthenticated()) {
-            return "loginPages/login";
+            return "/loginPages/login";
         }
 
         if (error != null)
@@ -74,17 +74,17 @@ public class UserController {
 
     @GetMapping(value = {"/user"})
     public String getLogin() {
-        return "user";
+        return "user/user";
     }
 
     @GetMapping(value = {"/editUser"})
     public String editUser() {
-        return "editUser";
+        return "user/editUser";
     }
 
     @GetMapping(value = {"/deleteUser"})
     public String deleteUser() {
-        return "deleteUser";
+        return "user/deleteUser";
     }
 }
 
