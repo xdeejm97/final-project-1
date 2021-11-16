@@ -32,7 +32,7 @@ public class UserController {
 
     @GetMapping("/register")
     public String registration(Model model) {
-        if (securityService.isAuthenticated()) {
+        if (!securityService.isAuthenticated()) {
             return "loginPages/register";
         }
 
