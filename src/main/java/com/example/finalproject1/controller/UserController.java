@@ -32,13 +32,13 @@ public class UserController {
 
     @GetMapping("/register")
     public String registration(Model model) {
-        if (securityService.isAuthenticated()) {
+        if (!securityService.isAuthenticated()) {
             return "loginPages/register";
         }
 
         model.addAttribute("userForm", new User());
 
-        return "register";
+        return "loginPages/register";
     }
 
     @PostMapping("/register")
