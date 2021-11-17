@@ -1,5 +1,6 @@
 package com.example.finalproject1.controller;
 
+import com.example.finalproject1.dto.UserDto;
 import com.example.finalproject1.model.User;
 import com.example.finalproject1.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,23 +21,20 @@ public class UserValidator implements Validator {
 
     @Override
     public void validate(Object o, Errors errors) {
-        User user = (User) o;
+        UserDto user = (UserDto) o;
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "NotEmpty");
-        if (user.getUsername().length() < 6 || user.getUsername().length() > 32) {
-            errors.rejectValue("username", "Size.userForm.username");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "accountName", "NotEmpty");
+        if (user.getAccountName().length() < 6 || user.getAccountName().length() > 32) {
+            errors.rejectValue("accountName", "Size.userForm.username");
         }
-        if (userService.findByUsername(user.getUsername()) != null) {
-            errors.rejectValue("username", "Duplicate.userForm.username");
-        }
-
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty");
-        if (user.getPassword().length() < 8 || user.getPassword().length() > 32) {
-            errors.rejectValue("password", "Size.userForm.password");
+        if (userService.findByUsername(user.getAccountName()) != null) {
+            errors.rejectValue("accountName", "Duplicate.userForm.username");
         }
 
-        if (!user.getPasswordConfirm().equals(user.getPassword())) {
-            errors.rejectValue("passwordConfirm", "Diff.userForm.passwordConfirm");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "passwordId", "NotEmpty");
+        if (user.getPasswordId().length() < 8 || user.getPasswordId().length() > 32) {
+            errors.rejectValue("passwordId", "Size.userForm.password");
         }
+
     }
 }

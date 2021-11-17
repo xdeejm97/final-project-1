@@ -1,5 +1,7 @@
 package com.example.finalproject1.controller;
 
+import com.example.finalproject1.dto.UserDto;
+import com.example.finalproject1.model.Role;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,22 +38,33 @@ public class UserController {
             return "loginPages/register";
         }
 
-        model.addAttribute("userForm", new User());
+        model.addAttribute("userForm", new UserDto());
 
         return "loginPages/register";
     }
 
     @PostMapping("/register")
-    public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
+    public String registration(@ModelAttribute("userForm") UserDto userForm, BindingResult bindingResult) {
+
         userValidator.validate(userForm, bindingResult);
 
         if (bindingResult.hasErrors()) {
             return "loginPages/register";
         }
+        User user = new User();
 
-        userService.save(userForm);
+        user.setUsername(userForm.getAccountName());
+        user.setPassword(userForm.getPasswordId());
+        user.setEmail(userForm.getEmail());
+        user.setState(userForm.getState());
+        user.setCity(userForm.getCity());
+        user.setStreet(userForm.getStreet());
+        user.setHouseNumber(userForm.getHouseNumber());
+        user.setZipCode(userForm.getZipCode());
+        user.setRole(Role.USER);
+        userService.save(user);
 
-        securityService.autoLogin(userForm.getUsername(), userForm.getPasswordConfirm());
+        securityService.autoLogin(user.getUsername(), user.getPassword());
 
         return "index";
     }
@@ -59,7 +72,7 @@ public class UserController {
     @GetMapping("/login")
     public String login(Model model, String error, String logout) {
         if (!securityService.isAuthenticated()) {
-            return "loginPages/login";
+            return "index";
         }
 
         if (error != null)
