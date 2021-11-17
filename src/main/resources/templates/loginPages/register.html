@@ -19,18 +19,18 @@
 </head>
 <body>
 <div class="container">
-    <form class="form-horizontal" role="form">
+    <form th:action="@{/register}" th:object="${userForm}" method="post" class="form-horizontal" role="form">
         <h2>Registration</h2>
         <div class="form-group">
             <label for="accountName" class="col-sm-3 control-label">Nazwa*</label>
             <div class="col-sm-9">
-                <input type="text" id="accountName" placeholder="Nazwa użytkownika" class="form-control" autofocus>
+                <input type="text" id="accountName" placeholder="Nazwa użytkownika" class="form-control" autofocus name="accountName">
             </div>
         </div>
         <div class="form-group">
             <label for="passwordId" class="col-sm-3 control-label">Hasło*</label>
             <div class="col-sm-9">
-                <input type="password" id="passwordId" placeholder="Hasło" class="form-control" autofocus>
+                <input type="password" id="passwordId" placeholder="Hasło" class="form-control" autofocus name="passwordId">
             </div>
         </div>
         <div class="form-group">
@@ -42,24 +42,23 @@
         <div class="form-group">
             <label for="state" class="col-sm-3 control-label">Województwo*</label>
             <div class="col-sm-9">
-                <input type="text" id="state" placeholder="Województwo" class="form-control">
+                <input type="text" id="state" placeholder="Województwo" class="form-control" name="state">
             </div>
         </div>
         <div class="form-group">
             <label for="city" class="col-sm-3 control-label">Miasto*</label>
             <div class="col-sm-9">
-                <input type="text" id="city" placeholder="Miasto" class="form-control">
+                <input type="text" id="city" placeholder="Miasto" class="form-control" name="city">
             </div>
         </div>
         <div class="form-group">
             <label for="adress" class="col-sm-3 control-label">Adres* </label>
             <div class="col-sm-9">
-                <input type="text" id="street" placeholder="Ulica" class="form-control">
-                <input type="text" id="houseNumber" placeholder="Numer domu" class="form-control">
-                <input type="text" id="zipCode" placeholder="Kod pocztowy" class="form-control">
+                <input type="text" id="street" placeholder="Ulica" class="form-control" name="street">
+                <input type="text" id="houseNumber" placeholder="Numer domu" class="form-control" name="houseNumber">
+                <input type="text" id="zipCode" placeholder="Kod pocztowy" class="form-control" name="zipCode">
             </div>
         </div>
-
         <div class="form-group">
             <div class="col-sm-9 col-sm-offset-3">
                 <span class="help-block">*Required fields</span>
