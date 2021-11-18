@@ -72,7 +72,7 @@ public class UserController {
     @GetMapping("/login")
     public String login(Model model, String error, String logout) {
         if (!securityService.isAuthenticated()) {
-            return "index";
+            return "loginPages/login";
         }
 
         if (error != null)
