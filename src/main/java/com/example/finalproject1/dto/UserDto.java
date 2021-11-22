@@ -18,6 +18,4 @@ public class UserDto {
     private String houseNumber;
     private String zipCode;
 
-
-
 }

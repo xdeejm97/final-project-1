@@ -1,7 +1,6 @@
 package com.example.finalproject1.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -12,6 +11,12 @@ public class IndexController {
     public String getHomePage(){
 
         return "index";
+    }
+
+    @RequestMapping(value = "/terms-condition", method = RequestMethod.GET)
+    public String getTermsCondition() {
+
+        return "terms-condition";
     }
 
 

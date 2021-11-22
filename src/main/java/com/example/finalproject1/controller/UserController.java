@@ -4,15 +4,12 @@ import com.example.finalproject1.dto.UserDto;
 import com.example.finalproject1.model.Role;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.finalproject1.model.User;
 import com.example.finalproject1.service.SecurityService;
 import com.example.finalproject1.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 

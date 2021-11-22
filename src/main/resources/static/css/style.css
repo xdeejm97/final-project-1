@@ -702,6 +702,44 @@ ul.pagination .active a {
   }
 }
 
+.register-button {
+  border: 2px solid #dedede;
+  margin-right: 8px;
+  padding: 6px 20px !important;
+}
+
+@media (max-width: 400px) {
+  .register-button {
+    display: inline-block;
+    padding: 6px 45px !important;
+    margin: 5px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-button {
+    display: inline-block;
+    padding: 6px 45px !important;
+    margin: 5px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .register-button {
+    display: inline-block;
+    padding: 6px 45px !important;
+    margin: 5px 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .register-button {
+    display: inline-block;
+    padding: 6px 45px !important;
+    margin: 5px 0;
+  }
+}
+
 .add-button {
   background: #28a745;
   color: #fff;
