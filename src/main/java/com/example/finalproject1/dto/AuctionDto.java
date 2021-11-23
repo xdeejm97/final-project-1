@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -18,34 +19,11 @@ public class AuctionDto {
     private double auctionPrice;
     private String itemDescription;
 
-    public String getItemDescription() {
-        return itemDescription;
-    }
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate auctionStartingDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate auctionClosingDate;
 
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
-    private Date auctionStartingDate;
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
-    private Date auctionClosingDate;
-
-    public String getAuctionName() {
-        return auctionName;
-    }
-
-    public double getAuctionPrice() {
-        return auctionPrice;
-    }
-
-    public Date getAuctionStartingDate() {
-        return auctionStartingDate;
-    }
-
-    public Date getAuctionClosingDate() {
-        return auctionClosingDate;
-    }
-
-    public User getUser() {
-        return user;
-    }
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")

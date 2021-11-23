@@ -3,6 +3,7 @@ package com.example.finalproject1.model;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -22,9 +23,9 @@ public class Auction {
     }
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date auctionStartingDate;
+    private LocalDate auctionStartingDate;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date auctionClosingDate;
+    private LocalDate auctionClosingDate;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User user;
@@ -45,11 +46,11 @@ public class Auction {
         this.auctionNegotiationPrice = auctionNegotiationPrice;
     }
 
-    public void setAuctionStartingDate(Date auctionStartingDate) {
+    public void setAuctionStartingDate(LocalDate auctionStartingDate) {
         this.auctionStartingDate = auctionStartingDate;
     }
 
-    public void setAuctionClosingDate(Date auctionClosingDate) {
+    public void setAuctionClosingDate(LocalDate auctionClosingDate) {
         this.auctionClosingDate = auctionClosingDate;
     }
 
