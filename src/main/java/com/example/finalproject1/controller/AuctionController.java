@@ -30,6 +30,13 @@ public class AuctionController {
         return "auctions";
     }
 
+    @GetMapping(value = {"/addAuction"})
+    public String getAddAuctions(Model model) {
+        List<Auction> listAuctions = auctionService.getAuctionList();
+        model.addAttribute("auctions", listAuctions);
+        return "auction/addAuction";
+    }
+
     @PostMapping(value = {"/addAuction"})
     public RedirectView addAuction(@ModelAttribute ("auctionForm") AuctionDto auctionForm, Principal principal) {
 
@@ -49,6 +56,18 @@ public class AuctionController {
         return new RedirectView("/deleteAuction"); // czy jest dobry endpoint?
     }
 
+
+//     @GetMapping(value = {"/editAuction"})
+//     public String getEditAuction(Model model, @PathVariable("id") Long id) {
+//         Auction auction = auctionService.getPerson(id);
+//         model.addAttribute("auction", auction);
+//         return "/editAuction";
+//     }
+
+    @PostMapping(value = "/auctions/{id}")
+    public RedirectView postEditAuction(@PathVariable("id") Long id, @ModelAttribute Auction newAuction) {
+        auctionService.save(newAuction);
+=======
   // @GetMapping(value = {"/editAuction"})
   // public String getEditAuction(Model model, @PathVariable("id") Long id) {
   //     Auction auction = auctionService.getPerson(id);
@@ -58,6 +77,7 @@ public class AuctionController {
     @PostMapping(value = "/auctions/{id}")
     public RedirectView postEditAuction(@PathVariable("id") Long id, @ModelAttribute Auction newAuction){
         auctionService.create(newAuction);
+
         return new RedirectView("/editAuction/{id}");
     }
 
