@@ -22,7 +22,7 @@ public class AuctionController {
     public AuctionController(AuctionService auctionService) {
         this.auctionService = auctionService;
     }
-
+    //wypychanie na frontend listy aukcji
     @GetMapping(value = {"/auctions"})
     public String getAllAuctions(Model model) {
         List<Auction> listAuctions = auctionService.getAuctionList();

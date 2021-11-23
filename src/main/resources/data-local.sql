@@ -1,0 +1,1 @@
+INSERT INTO users (id, username, password, email, state, city, street, house_number, zip_code, role) VALUES (0, 'admin', '$2a$10$LvMZuWnPP7ZxVnc4LRfoXu0zgBH4LS0guphHaS42syWcX9fiS/8uO', 'admin@admin.pl', 'Opolskie', 'Opole', 'Opolska', '20', '00-100', 0);
