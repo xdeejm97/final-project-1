@@ -36,6 +36,7 @@ public class AuctionController {
         Auction auction = new Auction();
         auction.setAuctionName(auctionForm.getAuctionName());
         auction.setAuctionPrice(auctionForm.getAuctionPrice());
+        auction.setItemDescritpion(auctionForm.getItemDescription());
         auction.setAuctionStartingDate(auctionForm.getAuctionStartingDate());
         auction.setAuctionClosingDate(auctionForm.getAuctionClosingDate());
         auctionService.create(auction, principal.getName());

@@ -15,6 +15,12 @@ public class Auction {
     private String auctionName;
     private double auctionPrice;
     private double auctionNegotiationPrice;
+    private String itemDescritpion;
+
+    public void setItemDescritpion(String itemDescritpion) {
+        this.itemDescritpion = itemDescritpion;
+    }
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date auctionStartingDate;
     @DateTimeFormat(pattern = "yyyy-MM-dd")

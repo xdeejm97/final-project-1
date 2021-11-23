@@ -16,6 +16,12 @@ public class AuctionDto {
 
     private String auctionName;
     private double auctionPrice;
+    private String itemDescription;
+
+    public String getItemDescription() {
+        return itemDescription;
+    }
+
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date auctionStartingDate;
     @DateTimeFormat(pattern = "dd-MM-yyyy")
