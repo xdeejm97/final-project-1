@@ -29,6 +29,13 @@ public class AuctionController {
         return "auctions";
     }
 
+    @GetMapping(value = {"/addAuction"})
+    public String getAddAuctions(Model model) {
+        List<Auction> listAuctions = auctionService.getAuctionList();
+        model.addAttribute("auctions", listAuctions);
+        return "auction/addAuction";
+    }
+
     @PostMapping(value = {"/addAuction"})
     public RedirectView postAddNewAuction(@ModelAttribute Auction newAuction) {
         auctionService.save(newAuction);
@@ -47,8 +54,9 @@ public class AuctionController {
         model.addAttribute("auction", auction);
         return "/editAuction";
     }
+
     @PostMapping(value = "/auctions/{id}")
-    public RedirectView postEditAuction(@PathVariable("id") Long id, @ModelAttribute Auction newAuction){
+    public RedirectView postEditAuction(@PathVariable("id") Long id, @ModelAttribute Auction newAuction) {
         auctionService.save(newAuction);
         return new RedirectView("/editAuction/{id}");
     }
