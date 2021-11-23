@@ -1,7 +1,7 @@
 package com.example.finalproject1.controller;
 
+import com.example.finalproject1.dto.AuctionDto;
 import com.example.finalproject1.model.Auction;
-import com.example.finalproject1.repository.AuctionRepository;
 import com.example.finalproject1.service.AuctionService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -30,9 +31,15 @@ public class AuctionController {
     }
 
     @PostMapping(value = {"/addAuction"})
-    public RedirectView postAddNewAuction(@ModelAttribute Auction newAuction) {
-        auctionService.save(newAuction);
-        return new RedirectView("auctions");
+    public RedirectView addAuction(@ModelAttribute ("auctionForm") AuctionDto auctionForm, Principal principal) {
+
+        Auction auction = new Auction();
+        auction.setAuctionName(auctionForm.getAuctionName());
+        auction.setAuctionPrice(auctionForm.getAuctionPrice());
+        auction.setAuctionStartingDate(auctionForm.getAuctionStartingDate());
+        auction.setAuctionClosingDate(auctionForm.getAuctionClosingDate());
+        auctionService.create(auction, principal.getName());
+        return new RedirectView("/auctions");
     }
 
     @PostMapping(value = {"/deleteAuction/{id}"})
@@ -41,15 +48,15 @@ public class AuctionController {
         return new RedirectView("/deleteAuction"); // czy jest dobry endpoint?
     }
 
-    @GetMapping(value = {"/editAuction"})
-    public String getEditAuction(Model model, @PathVariable("id") Long id) {
-        Auction auction = auctionService.getPerson(id);
-        model.addAttribute("auction", auction);
-        return "/editAuction";
-    }
+  // @GetMapping(value = {"/editAuction"})
+  // public String getEditAuction(Model model, @PathVariable("id") Long id) {
+  //     Auction auction = auctionService.getPerson(id);
+  //     model.addAttribute("auction", auction);
+  //     return "/editAuction";
+  // }
     @PostMapping(value = "/auctions/{id}")
     public RedirectView postEditAuction(@PathVariable("id") Long id, @ModelAttribute Auction newAuction){
-        auctionService.save(newAuction);
+        auctionService.create(newAuction);
         return new RedirectView("/editAuction/{id}");
     }
 
