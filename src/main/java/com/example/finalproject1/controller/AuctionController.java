@@ -22,7 +22,7 @@ public class AuctionController {
     public AuctionController(AuctionService auctionService) {
         this.auctionService = auctionService;
     }
-
+    //wypychanie na frontend listy aukcji
     @GetMapping(value = {"/auctions"})
     public String getAllAuctions(Model model) {
         List<Auction> listAuctions = auctionService.getAuctionList();
@@ -32,8 +32,7 @@ public class AuctionController {
 
     @GetMapping(value = {"/addAuction"})
     public String getAddAuctions(Model model) {
-        List<Auction> listAuctions = auctionService.getAuctionList();
-        model.addAttribute("auctions", listAuctions);
+        model.addAttribute("auctionForm", new AuctionDto());
         return "auction/addAuction";
     }
 
@@ -64,16 +63,16 @@ public class AuctionController {
 //         return "/editAuction";
 //     }
 
-    @PostMapping(value = "/auctions/{id}")
-    public RedirectView postEditAuction(@PathVariable("id") Long id, @ModelAttribute Auction newAuction) {
-        auctionService.save(newAuction);
-=======
+//    @PostMapping(value = "/auctions/{id}")
+//    public RedirectView postEditAuction(@PathVariable("id") Long id, @ModelAttribute Auction newAuction) {
+//        auctionService.save(newAuction);
+
   // @GetMapping(value = {"/editAuction"})
   // public String getEditAuction(Model model, @PathVariable("id") Long id) {
   //     Auction auction = auctionService.getPerson(id);
   //     model.addAttribute("auction", auction);
   //     return "/editAuction";
-  // }
+   //}
     @PostMapping(value = "/auctions/{id}")
     public RedirectView postEditAuction(@PathVariable("id") Long id, @ModelAttribute Auction newAuction){
         auctionService.create(newAuction);
