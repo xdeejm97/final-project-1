@@ -26,15 +26,21 @@ public class CategoriesController {
         return "categories/automotive";
     }
     @RequestMapping(value ="/electronics" , method = RequestMethod.GET)
-    public String getElectronicsPage(){
+    public String getElectronicsPage(Model model){
+        List<Auction> electronics = auctionRepository.findByCategory("Electronics");
+        model.addAttribute("auctions", electronics);
         return "categories/electronics";
     }
     @RequestMapping(value ="/fashion" , method = RequestMethod.GET)
-    public String getFashionPage(){
+    public String getFashionPage(Model model){
+        List<Auction> fashion = auctionRepository.findByCategory("Fashion");
+        model.addAttribute("auctions", fashion);
         return "categories/fashion";
     }
     @RequestMapping(value ="/realEstate" , method = RequestMethod.GET)
-    public String getRealEstatePage(){
+    public String getRealEstatePage(Model model){
+        List<Auction> realEstate = auctionRepository.findByCategory("Real Estate");
+        model.addAttribute("auctions", realEstate);
         return "categories/realEstate";
     }
 
