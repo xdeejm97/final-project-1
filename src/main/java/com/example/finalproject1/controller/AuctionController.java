@@ -5,12 +5,14 @@ import com.example.finalproject1.model.Auction;
 import com.example.finalproject1.service.AuctionService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
+import javax.validation.Valid;
 import java.security.Principal;
 import java.util.List;
 
@@ -37,16 +39,21 @@ public class AuctionController {
     }
 
     @PostMapping(value = {"/addAuction"})
-    public RedirectView addAuction(@ModelAttribute ("auctionForm") AuctionDto auctionForm, Principal principal) {
+    public String addAuction(@Valid AuctionDto auctionForm, Principal principal, BindingResult bindingResult) {
+
+        if(bindingResult.hasErrors()){
+            return "auction/addAuction";
+        }
 
         Auction auction = new Auction();
         auction.setAuctionName(auctionForm.getAuctionName());
         auction.setAuctionPrice(auctionForm.getAuctionPrice());
+        auction.setCategory(auctionForm.getCategory());
         auction.setItemDescritpion(auctionForm.getItemDescription());
         auction.setAuctionStartingDate(auctionForm.getAuctionStartingDate());
         auction.setAuctionClosingDate(auctionForm.getAuctionClosingDate());
         auctionService.create(auction, principal.getName());
-        return new RedirectView("/auctions");
+        return "redirect:/auctions";
     }
 
     @PostMapping(value = {"/deleteAuction/{id}"})

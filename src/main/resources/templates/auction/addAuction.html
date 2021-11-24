@@ -46,9 +46,11 @@
             <div class="col-md-12">
                 <nav class="navbar navbar-expand-lg navbar-light navigation">
                     <a class="navbar-brand" href="../index.html">
-                        <img src="../../../Desktop/Java/final-project-1/src/main/resources/static/images/logo.png" alt="">
+                        <img src="../../../Desktop/Java/final-project-1/src/main/resources/static/images/logo.png"
+                             alt="">
                     </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent"
                             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -75,15 +77,23 @@
                 <div class="col-lg-5 col-md-8 align-item-center">
                     <div class="border border">
                         <h3 class="bg-gray p-4">Add your new auction!</h3>
-                                                    <fieldset class="p-4">
+                        <fieldset class="p-4">
 
-                                <input type="text" id="auctionName" placeholder="Auction name*" class="border p-3 w-100 my-2" autofocus name="auctionName">
-                                <input type="number" id="auctionPrice" placeholder="Price auction*" class="border p-3 w-100 my-2" autofocus name="auctionPrice">
-                                <input type="text" id="itemDescription" placeholder="Description*" class="border p-3 w-100 my-2" autofocus name="itemDescription">
-                                <input type="date" id="auctionStartingDate" placeholder="Start auction date*" class="border p-3 w-100 my-2" autofocus name="auctionStartingDate">
-                                <input type="date" id="auctionClosingDate" placeholder="Close auction date*" class="border p-3 w-100 my-2" autofocus name="auctionClosingDate">
-                                <button type="submit" class="d-block py-3 px-4 bg-primary text-white border-0 rounded font-weight-bold">Add Now</button>
-                            </fieldset>
+                            <input type="text" id="auctionName" placeholder="Auction name*" class="border p-3 w-100 my-2" autofocus name="auctionName">
+                            <input type="number" id="auctionPrice" placeholder="Price auction*" class="border p-3 w-100 my-2" autofocus name="auctionPrice">
+                            <select id="category" placeholder="Category*" class="border p-3 w-100 my-2" autofocus name="category">
+                                <option>Automotive</option>
+                                <option>Electronics</option>
+                                <option>Fashion</option>
+                                <option>Real Estate</option>
+                            </select>
+                            <input type="text" id="" placeholder="Description*" class="border p-3 w-100 my-2" autofocus name="itemDescription">
+                            <input type="date" id="auctionStartingDate" placeholder="Start auction date*" class="border p-3 w-100 my-2" autofocus name="auctionStartingDate">
+                            <input type="date" id="auctionClosingDate" placeholder="Close auction date*" class="border p-3 w-100 my-2" autofocus name="auctionClosingDate">
+                            <button type="submit" class="d-block py-3 px-4 bg-primary text-white border-0 rounded font-weight-bold">
+                                Add Now
+                            </button>
+                        </fieldset>
                     </div>
                 </div>
             </div>
@@ -153,10 +163,13 @@
             <div class="col-sm-6 col-12">
                 <!-- Copyright -->
                 <div class="copyright">
-                    <p>Copyright © <script>
-                        var CurrentYear = new Date().getFullYear()
-                        document.write(CurrentYear)
-                    </script>. All Rights Reserved, theme by <a class="text-primary" href="https://themefisher.com" target="_blank">themefisher.com</a></p>
+                    <p>Copyright ©
+                        <script>
+                            var CurrentYear = new Date().getFullYear()
+                            document.write(CurrentYear)
+                        </script>
+                        . All Rights Reserved, theme by <a class="text-primary" href="https://themefisher.com"
+                                                           target="_blank">themefisher.com</a></p>
                 </div>
             </div>
             <div class="col-sm-6 col-12">
@@ -164,7 +177,8 @@
                 <ul class="social-media-icons text-right">
                     <li><a class="fa fa-facebook" href="https://www.facebook.com/themefisher" target="_blank"></a></li>
                     <li><a class="fa fa-twitter" href="https://www.twitter.com/themefisher" target="_blank"></a></li>
-                    <li><a class="fa fa-pinterest-p" href="https://www.pinterest.com/themefisher" target="_blank"></a></li>
+                    <li><a class="fa fa-pinterest-p" href="https://www.pinterest.com/themefisher" target="_blank"></a>
+                    </li>
                     <li><a class="fa fa-vimeo" href=""></a></li>
                 </ul>
             </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
 
     <!-- SITE TITTLE -->
@@ -108,6 +108,24 @@
             </div>
         </div>
     </div>
+</section>
+<section>
+    <table class="table"><thead><tr>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Description</th>
+        <th scope="col">Start auction</th>
+        <th scope="col">End auction</th>
+
+    </tr>
+    <tr th:each="auction:${auctions}">
+        <td th:text="${auction.auctionName}"></td>
+        <td th:text="${auction.auctionPrice}"></td>
+        <td th:text="${auction.itemDescritpion}"></td>
+        <td th:text="${auction.auctionStartingDate}"></td>
+        <td th:text="${auction.auctionClosingDate}"></td>
+
+    </tr></thead></table>
 </section>
 <!--============================
 =            Footer            =

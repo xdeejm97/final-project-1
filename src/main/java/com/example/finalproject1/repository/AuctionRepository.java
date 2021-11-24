@@ -15,4 +15,5 @@ public interface AuctionRepository extends JpaRepository<Auction, Long> {
 
     void delete(Auction aLong);
     Auction findById(long id);
+    List<Auction> findByCategory(String category);
 }

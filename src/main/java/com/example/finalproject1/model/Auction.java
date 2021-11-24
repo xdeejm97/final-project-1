@@ -1,11 +1,13 @@
 package com.example.finalproject1.model;
 
+import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
 
+@Data
 @Entity
 @Table
 public class Auction {
@@ -17,10 +19,11 @@ public class Auction {
     private double auctionPrice;
     private double auctionNegotiationPrice;
     private String itemDescritpion;
+    private String category;
 
-    public void setItemDescritpion(String itemDescritpion) {
-        this.itemDescritpion = itemDescritpion;
-    }
+
+
+
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate auctionStartingDate;
@@ -30,31 +33,6 @@ public class Auction {
     @JoinColumn(name = "user_id")
     private User user;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    public void setAuctionName(String auctionName) {
-        this.auctionName = auctionName;
-    }
 
-    public void setAuctionPrice(double auctionPrice) {
-        this.auctionPrice = auctionPrice;
-    }
-
-    public void setAuctionNegotiationPrice(double auctionNegotiationPrice) {
-        this.auctionNegotiationPrice = auctionNegotiationPrice;
-    }
-
-    public void setAuctionStartingDate(LocalDate auctionStartingDate) {
-        this.auctionStartingDate = auctionStartingDate;
-    }
-
-    public void setAuctionClosingDate(LocalDate auctionClosingDate) {
-        this.auctionClosingDate = auctionClosingDate;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 }
