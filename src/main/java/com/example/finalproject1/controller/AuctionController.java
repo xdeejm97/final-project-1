@@ -39,7 +39,7 @@ public class AuctionController {
     }
 
     @PostMapping(value = {"/addAuction"})
-    public String addAuction(@Valid AuctionDto auctionForm, Principal principal, BindingResult bindingResult) {
+    public String addAuction(@Valid @ModelAttribute("auctionForm") AuctionDto auctionForm, BindingResult bindingResult, Principal principal) {
 
         if(bindingResult.hasErrors()){
             return "auction/addAuction";
