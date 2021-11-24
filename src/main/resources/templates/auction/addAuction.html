@@ -78,10 +78,13 @@
                         <h3 class="bg-gray p-4">Add your new auction!</h3>
                         <fieldset class="p-4">
 
-                            <input type="text" id="auctionName" placeholder="Auction name*" class="border p-3 w-100 my-2" autofocus name="auctionName">
-                            <input type="number" id="auctionPrice" placeholder="Price auction*" class="border p-3 w-100 my-2" autofocus name="auctionPrice">
+                            <input type="text" id="auctionName" placeholder="Auction name*" class="border p-3 w-100 my-2" autofocus name="auctionName" th:value="${auctionForm.auctionName}">
+                            <p class="text-danger" th:if="${#fields.hasErrors('auctionName')}">Name cannot be empty</p>
+                            <input type="number" id="auctionPrice" placeholder="Price auction*" class="border p-3 w-100 my-2" autofocus name="auctionPrice" th:value="${auctionForm.auctionPrice}">
+                            <p class="text-danger" th:if="${#fields.hasErrors('auctionPrice')}">Price has to be higher than 0.0</p>
                             <select id="category" placeholder="Category*" class="border p-3 w-100 my-2" autofocus name="category">
-                                <option>Automotive</option>
+                                <option selected disabled>Category*</option>
+                                <option >Automotive</option>
                                 <option>Electronics</option>
                                 <option>Fashion</option>
                                 <option>Real Estate</option>
