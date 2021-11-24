@@ -17,10 +17,11 @@ public class Auction {
     private double auctionPrice;
     private double auctionNegotiationPrice;
     private String itemDescritpion;
+    private String category;
 
-    public void setItemDescritpion(String itemDescritpion) {
-        this.itemDescritpion = itemDescritpion;
-    }
+
+
+
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate auctionStartingDate;
@@ -30,6 +31,10 @@ public class Auction {
     @JoinColumn(name = "user_id")
     private User user;
 
+
+    public void setItemDescritpion(String itemDescritpion) {
+        this.itemDescritpion = itemDescritpion;
+    }
     public void setId(Long id) {
         this.id = id;
     }
@@ -44,6 +49,13 @@ public class Auction {
 
     public void setAuctionNegotiationPrice(double auctionNegotiationPrice) {
         this.auctionNegotiationPrice = auctionNegotiationPrice;
+    }
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public void setAuctionStartingDate(LocalDate auctionStartingDate) {
