@@ -2,8 +2,10 @@ package com.example.finalproject1.repository;
 
 
 import com.example.finalproject1.model.Auction;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
 
 import java.util.List;
 
@@ -16,4 +18,10 @@ public interface AuctionRepository extends JpaRepository<Auction, Long> {
     void delete(Auction aLong);
     Auction findById(long id);
     List<Auction> findByCategory(String category);
+
+
+    List<Auction> findByCategoryOrderByAuctionClosingDateAsc(String category, Pageable pageable);
+
+    List<Auction> findByAuctionNameContaining(String auctionName);
+
 }
